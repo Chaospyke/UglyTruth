@@ -1,0 +1,44 @@
+.headerLink {
+  color: #f0ec14;
+}
+
+.headerLink:hover {
+  color: #868534;
+  text-decoration: none;
+}
+
+.headerBar {
+  background-color: #090908;
+}
+
+.titleDisplay {
+  color: #f0ec14;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.titleBar {
+  background-color: #090908;
+}
+
+.btn-utSearch {
+  border-color: #f0ec14;
+  color: #f0ec14;
+}
+
+.formStyle:not(active) {
+  color: #f0ec14;
+}
+
+.formStyle:focus {
+  color: red;
+}
+
+.formStyle::placeholder {
+  color: #868534;
+}
+
+.formStyle:hover {
+  color: #868534;
+  text-decoration: none;
+}
