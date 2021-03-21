@@ -1,21 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import {
-  Navbar,
-  Nav,
-  NavItem,
-  NavDropdown,
-  MenuItem,
-  Form,
-  FormControl,
-  Button,
-} from "react-bootstrap";
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 
 class HeaderApp extends Component {
   state = {};
   render() {
     return (
-      <Navbar className="headerBar" expand="lg">
+      <Navbar className="headerBar" expand="lg" fixed="top">
         <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

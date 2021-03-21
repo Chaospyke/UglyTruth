@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TitleBarApp from "./TitleBarApp";
 import { Image } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 class ArchiveApp extends Component {
   state = {
@@ -20,7 +21,8 @@ class ArchiveApp extends Component {
     },
     fetchedData: [
       {
-        id: 1,
+        key: 1,
+        id: 3343,
         title: "True Story One",
         pict: "https://picsum.photos/200",
         summary:
@@ -54,7 +56,8 @@ class ArchiveApp extends Component {
         ],
       },
       {
-        id: 2,
+        key: 2,
+        id: 4081,
         title: "False Story One",
         pict: "https://picsum.photos/200",
         summary:
@@ -93,7 +96,8 @@ class ArchiveApp extends Component {
         ],
       },
       {
-        id: 3,
+        key: 3,
+        id: 3679,
         title: "Fake Story Two",
         pict: "https://picsum.photos/200",
         summary:
@@ -117,7 +121,8 @@ class ArchiveApp extends Component {
         ],
       },
       {
-        id: 4,
+        key: 4,
+        id: 2247,
         title: "Honest Story Two",
         pict: "https://picsum.photos/200",
         summary:
@@ -151,7 +156,8 @@ class ArchiveApp extends Component {
         ],
       },
       {
-        id: 5,
+        key: 5,
+        id: 8008,
         title: "Fabricated Story Three",
         pict: "https://picsum.photos/200",
         summary:
@@ -180,8 +186,9 @@ class ArchiveApp extends Component {
         ],
       },
       {
-        id: 6,
-        title: "Fictional Story Four",
+        key: 6,
+        id: 9006,
+        title: "Falcified Story Four",
         pict: "https://picsum.photos/200",
         summary:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet suscipit nulla, vel varius lorem. Praesent vitae laoreet nulla, eu ultrices sem. Praesent hendrerit sem quis lectus blandit vehicula. Morbi vestibulum aliquet dolor, feugiat vestibulum nunc cursus lacinia. Quisque tortor ante, aliquet et magna vitae, lacinia finibus metus. Nam a nunc ante. Vestibulum bibendum quam ac luctus malesuada. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;",
@@ -219,7 +226,8 @@ class ArchiveApp extends Component {
         ],
       },
       {
-        id: 7,
+        key: 7,
+        id: 5610,
         title: "Factual Story Three",
         pict: "https://picsum.photos/200",
         summary:
@@ -270,23 +278,28 @@ class ArchiveApp extends Component {
 
   renderSearchResults() {
     return this.state.displayData.map((e) => (
-      <div key={e.id} class="row">
-        <div class="col-sm-12 titleDisplay">{e.title}</div>
-        <div class="row">
-          <div class="col-sm-4">
+      <div key={e.id} className="row">
+        <div className="col-sm-12 titleDisplay">{e.title}</div>
+        <div className="row">
+          <div className="col-sm-4">
             <Image src={e.pict} />
           </div>
-          <div class="col-sm-4">{e.summary}</div>
-          <div class="col-sm-4">
-            <div class="row">
-              <h6 class="headerLink">Sources</h6>
-              <ul>
+          <div className="col-sm-4 colored-text">{e.summary}</div>
+          <div className="col-sm-4">
+            <div className="row">
+              <h6 className="col-sm-12 colored-text">Sources</h6>
+              <ul className="headerLink">
                 {e.links.map((ee) => (
                   <li key={ee.key}>
                     {ee.relevance}:{ee.url}
                   </li>
                 ))}
               </ul>
+              <span className="col-sm-12">
+                <Link className="headerLink" to={`/story/` + e.id}>
+                  Link to {e.title}
+                </Link>
+              </span>
             </div>
           </div>
         </div>

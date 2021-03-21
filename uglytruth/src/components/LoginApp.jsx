@@ -19,7 +19,7 @@ class LoginApp extends Component {
         <TitleBarApp titleData={this.state.titleData}></TitleBarApp>
         <Form>
           <Form.Group as={Row} controlId="usernameInput">
-            <Form.Label column sm="2" className="headerLink">
+            <Form.Label column sm="2" className="colored-text">
               Username
             </Form.Label>
             <Col sm="10">
@@ -32,7 +32,7 @@ class LoginApp extends Component {
             </Col>
           </Form.Group>
           <Form.Group as={Row} controlId="passwordInput">
-            <Form.Label column sm="2" className="headerLink">
+            <Form.Label column sm="2" className="colored-text">
               Email address
             </Form.Label>
             <Col sm="10">

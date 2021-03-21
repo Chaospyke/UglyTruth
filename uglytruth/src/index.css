@@ -1,3 +1,15 @@
+#root {
+  width: 100%;
+  height: 100vh;
+}
+
+.base-background {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #090908;
+}
+
 .headerLink {
   color: #f0ec14;
 }
@@ -9,6 +21,7 @@
 
 .headerBar {
   background-color: #090908;
+  position: sticky !important;
 }
 
 .titleDisplay {
@@ -19,11 +32,8 @@
 
 .titleBar {
   background-color: #090908;
-}
-
-.btn-utSearch {
-  border-color: #f0ec14;
-  color: #f0ec14;
+  position: sticky !important;
+  top: 0;
 }
 
 .formStyle:not(active) {
@@ -41,4 +51,8 @@
 .formStyle:hover {
   color: #868534;
   text-decoration: none;
+}
+
+.colored-text {
+  color: #f0ec14;
 }

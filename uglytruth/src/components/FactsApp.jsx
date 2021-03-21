@@ -108,7 +108,7 @@ class FactsApp extends Component {
       <Card key={e.key} className="headerBar" bg="dark">
         <Card.Header>
           <Accordion.Toggle
-            className="headerLink"
+            className="colored-text"
             as={Nav.Link}
             variant="link"
             eventKey={e.key}

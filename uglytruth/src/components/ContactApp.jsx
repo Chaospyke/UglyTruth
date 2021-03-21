@@ -27,11 +27,13 @@ class ContactApp extends Component {
                   as="textarea"
                   placeholder="Send us any questions you have."
                 ></FormControl>
-                <Button as="Submit">Submit Email</Button>
+                <Button as="Submit" variant="utSearch">
+                  Submit Email
+                </Button>
               </Form>
             </div>
           </div>
-          <div class="col-lg-3"></div>
+          <div className="col-lg-3"></div>
         </div>
       </div>
     );

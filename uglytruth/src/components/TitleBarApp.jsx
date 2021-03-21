@@ -49,14 +49,6 @@ class TitleBarApp extends Component {
           {this.props.titleData.titleName}
         </div>
         <div className="titleDisplay col-9">
-          <style>
-            {`
-            .btn-utSearch {
-              border-color: #f0ec14;
-              color: #f0ec14;
-            }
-            `}
-          </style>
           {this.renderSearch(this.props.titleData)}
         </div>
       </div>
