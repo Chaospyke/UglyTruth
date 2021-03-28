@@ -1,8 +1,14 @@
 import React, { Component } from "react";
 import TitleBarApp from "./TitleBarApp";
-import { Button, Form, Row, Col } from "react-bootstrap";
+import { Button, Form, Row, Col, Image } from "react-bootstrap";
 
 class LoginApp extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state.loginDetails = this.props.loginDetails;
+  }
+
   state = {
     titleData: {
       id: null,
@@ -13,11 +19,41 @@ class LoginApp extends Component {
     },
   };
 
-  render() {
-    return (
-      <div>
-        <TitleBarApp titleData={this.state.titleData}></TitleBarApp>
-        <Form>
+  handleLogin = (e) => {
+    e.preventDefault();
+    let loginInfo = {};
+    loginInfo.user = document.getElementById("usernameInput").value;
+    loginInfo.pass = document.getElementById("passwordInput").value;
+    this.state.loginDetails.parentLogin(loginInfo);
+    return true;
+  };
+
+  renderLogin() {
+    if (this.props.loggedInUser) {
+      return (
+        <div className="row">
+          <div className="col-sm-3">
+            <Image src={this.props.loggedInUser.profileImg} />
+          </div>
+          <div className="col-sm-3">
+            <div className="colored-text">Username:</div>
+            <div className="colored-text">
+              {this.props.loggedInUser.userName}
+            </div>
+          </div>
+          <div className="col-sm-6">
+            <div
+              className="headerLink"
+              onClick={this.props.loginDetails.parentLogOut}
+            >
+              Log Out
+            </div>
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <Form onSubmit={this.handleLogin}>
           <Form.Group as={Row} controlId="usernameInput">
             <Form.Label column sm="2" className="colored-text">
               Username
@@ -48,6 +84,15 @@ class LoginApp extends Component {
             Login
           </Button>
         </Form>
+      );
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <TitleBarApp titleData={this.state.titleData}></TitleBarApp>
+        {this.renderLogin()}
       </div>
     );
   }

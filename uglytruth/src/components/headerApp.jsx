@@ -1,9 +1,35 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Image } from "react-bootstrap";
 
 class HeaderApp extends Component {
   state = {};
+
+  renderLogin() {
+    if (this.props.loggedInUser) {
+      return (
+        <React.Fragment>
+          <span className="colored-text">
+            {this.props.loggedInUser.userName}
+          </span>
+          <Image src={this.props.loggedInUser.profileImg} />
+          <span
+            onClick={this.props.loginDetails.parentLogOut}
+            className="headerLink"
+          >
+            Log Out
+          </span>
+        </React.Fragment>
+      );
+    } else {
+      return (
+        <Link className="headerLink" to="/login">
+          Log In
+        </Link>
+      );
+    }
+  }
+
   render() {
     return (
       <Navbar className="headerBar" expand="lg" fixed="top">
@@ -53,16 +79,8 @@ class HeaderApp extends Component {
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          {/* <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-success">Search</Button>
-          </Form> */}
         </Navbar.Collapse>
-        <Nav.Link className="pull-right">
-          <Link className="headerLink" to="/login">
-            Log In
-          </Link>
-        </Nav.Link>
+        <Nav.Link className="pull-right">{this.renderLogin()}</Nav.Link>
       </Navbar>
     );
   }

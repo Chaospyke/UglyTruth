@@ -53,6 +53,11 @@
   text-decoration: none;
 }
 
+.formStyle:-internal-autofill-selected {
+  background-color: #090908;
+  color: #f0ec14;
+}
+
 .colored-text {
   color: #f0ec14;
 }

@@ -649,7 +649,6 @@ class StoryApp extends Component {
   // }
 
   renderStory() {
-    console.log(this.props);
     let display = this.state.displayData;
     if (display) {
       return (

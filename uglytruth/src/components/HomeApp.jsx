@@ -4,6 +4,12 @@ import { Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 class HomeApp extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state.displayData = this.state.fetchedData;
+  }
+
   state = {
     titleData: {
       id: "main",
@@ -307,11 +313,6 @@ class HomeApp extends Component {
         </div>
       </React.Fragment>
     ));
-  }
-
-  componentDidMount() {
-    // this.fetchFirst();
-    this.setState({ displayData: this.state.fetchedData });
   }
 
   render() {

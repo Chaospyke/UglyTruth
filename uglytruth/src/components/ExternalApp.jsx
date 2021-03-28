@@ -3,6 +3,12 @@ import { Accordion, Card, Nav, Image } from "react-bootstrap";
 import TitleBarApp from "./TitleBarApp";
 
 class ExternalApp extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state.displayData = this.state.fetchedData;
+  }
+
   state = {
     titleData: {
       id: "externalTrustSource",
@@ -73,11 +79,6 @@ class ExternalApp extends Component {
     } else {
       this.setState({ displayData: this.state.fetchedData });
     }
-  }
-
-  componentDidMount() {
-    // this.fetchFirst();
-    this.setState({ displayData: this.state.fetchedData });
   }
 
   renderSearchResults() {
