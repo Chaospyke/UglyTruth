@@ -11,6 +11,15 @@ class ContactApp extends Component {
       SearchFunc: null,
       parentCallBack: null,
     },
+    functionCallTest:(e)=>{
+      console.log("functionCallTest called");
+      fetch("http://localhost:8080/api/v1/student/getStudent3",{
+        method:"GET"
+      })
+        .then(response => response.json())
+        .then((data)=>console.log("Result:",data[0]));
+      console.log("functionCallTest end");
+    }
   };
 
   render() {
@@ -27,7 +36,9 @@ class ContactApp extends Component {
                   as="textarea"
                   placeholder="Send us any questions you have."
                 ></FormControl>
-                <Button as="Submit" variant="utSearch">
+                <Button as="Submit" variant="utSearch"
+                  onClick={this.state.functionCallTest}
+                >
                   Submit Email
                 </Button>
               </Form>
