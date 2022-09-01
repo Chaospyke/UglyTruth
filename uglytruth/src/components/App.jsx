@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import HeaderApp from "./headerApp";
-import { Route, BrowserRouter as Router, Redirect } from "react-router-dom";
+import { Route, BrowserRouter as Router, Redirect,  } from "react-router-dom";
 import HomeApp from "./HomeApp";
 import ArchiveApp from "./ArchiveApp";
 import MissionApp from "./MissionApp";
@@ -9,41 +9,48 @@ import FactsApp from "./FactsApp";
 import ContactApp from "./ContactApp";
 import LoginApp from "./LoginApp";
 import StoryApp from "./StoryApp";
+import UserApp from "./UserApp";
+import SignApp from "./SignApp";
 
 class App extends Component {
   state = {
     loggedInUser: null,
     loginUsers: [
       {
-        userId: "userName@email.com",
+        userId:"coolguy93",
+        email: "userName@email.com",
         password: "badPassword",
         userName: "Malcom Zes",
         profileImg: "https://picsum.photos/20",
       },
 
       {
-        userId: "iserName@email.net",
+        userId:"EdgeyDark",
+        email: "iserName@email.net",
         password: "n07@b4d1",
         userName: "Remid Zost",
         profileImg: "https://picsum.photos/20",
       },
 
       {
-        userId: "faceCrime@email.io",
+        userId:"97Sassylass",
+        email: "faceCrime@email.io",
         password: "l4ck1n@",
         userName: "Samus Aran",
         profileImg: "https://picsum.photos/20",
       },
 
       {
-        userId: "noisyGirl@email.net",
+        userId:"i<3Exploud",
+        email: "noisyGirl@email.net",
         password: "sc33rchinG",
-        userName: "Kaka Foni",
+        userName: "Caka Foni",
         profileImg: "https://picsum.photos/20",
       },
 
       {
-        userId: "ALWAYSAGNRY@email.com",
+        userId:"madMADMad",
+        email: "ALWAYSAGNRY@email.com",
         password: "peace_full_of",
         userName: "Sean Aggre",
         profileImg: "https://picsum.photos/20",
@@ -52,26 +59,38 @@ class App extends Component {
     loginDetails: {
       parentLogin: (e) => this.handleLoginCallback(e),
       parentLogOut: (e) => this.handleLogoutCallback(e),
+      parentUpdate: (e) => this.handleUserUpdate(e),
     },
   };
 
   handleLoginCallback(e) {
-    this.state.loginUsers.map((v, i) => {
-      if (v.userId === e.user) {
-        if (v.password === e.pass) {
-          this.setState({ loggedInUser: v });
-          console.log(this.state);
-          console.log(v);
-        } else {
-          return false;
-        }
-      }
-      return true;
-    });
+    fetch("http://localhost:8080/api/v1/user/loginUser",{
+                method:"POST",
+                headers:{
+                    "Content-type":"application/json"
+                },
+                body:JSON.stringify(e)
+            })
+            .then(response=>response.json())
+            .then((data) =>{
+              if(!(data.error)){
+                this.setState(
+                  {loggedInUser:
+                    {
+                  data:data
+                }});
+              }else{
+                console.log("Login Failed");
+              }
+            });
   }
 
   handleLogoutCallback(e) {
     this.setState({ loggedInUser: null });
+  }
+
+  handleUserUpdate(e){
+    this.setState({loggedInUser:e});
   }
 
   render() {
@@ -113,6 +132,26 @@ class App extends Component {
             <Route
               path="/story/:storyId"
               component={(props) => <StoryApp {...props} />}
+            ></Route>
+            <Route 
+              exact 
+              path="/userInfo" 
+              component={()=>(
+                <UserApp
+                loginDetails={this.state.loginDetails}
+                loggedInUser={this.state.loggedInUser}
+                />
+              )}
+            ></Route>
+            <Route
+              exact
+              path="/signUp"
+              component={()=>(
+                <SignApp
+                  loginDetails={this.state.loginDetails}
+                  loggedInUser={this.state.loggedInUser}
+                />
+              )}
             ></Route>
           </Router>
         </div>

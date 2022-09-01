@@ -1,5 +1,7 @@
+
 import React, { Component } from "react";
 import TitleBarApp from "./TitleBarApp";
+import { Link } from "react-router-dom";
 import { Button, Form, Row, Col, Image } from "react-bootstrap";
 
 class LoginApp extends Component {
@@ -21,10 +23,40 @@ class LoginApp extends Component {
 
   handleLogin = (e) => {
     e.preventDefault();
-    let loginInfo = {};
-    loginInfo.user = document.getElementById("usernameInput").value;
-    loginInfo.pass = document.getElementById("passwordInput").value;
+    let loginInfo = {}
+      ,retrievedInfo;
+
+
+    loginInfo.username = document.getElementById("usernameInput").value;
+    loginInfo.password = document.getElementById("passwordInput").value;
     this.state.loginDetails.parentLogin(loginInfo);
+   
+
+    // fetch("http://localhost:8080/api/v1/user/getUserByUsername",{
+    //   method:"POST",
+    //   headers:{
+    //     "Content-Type":"application/json"
+    //   },
+    //   body:JSON.stringify(
+    //     {
+    //       username:loginInfo.user
+    //     }
+    //   )
+    // })
+    // .then(response => response.json())
+    // .then(data => {
+    //   retrievedInfo = data[0];
+    //   if(retrievedInfo.password === loginInfo.pass){
+    //     loginInfo.data = retrievedInfo;
+    //     this.state.loginDetails.parentLogin(loginInfo);
+    //   }else{
+    //     //TODO:Add Login Failed Feature.
+    //     console.log("Login failed");
+    //   }
+    // });
+
+
+    
     return true;
   };
 
@@ -38,7 +70,7 @@ class LoginApp extends Component {
           <div className="col-sm-3">
             <div className="colored-text">Username:</div>
             <div className="colored-text">
-              {this.props.loggedInUser.userName}
+              {this.props.loggedInUser.data.username}
             </div>
           </div>
           <div className="col-sm-6">
@@ -62,7 +94,7 @@ class LoginApp extends Component {
               <Form.Control
                 className="formStyle"
                 plaintext
-                type="email"
+                type="text"
                 placeholder="Enter Username"
               />
             </Col>
@@ -83,6 +115,11 @@ class LoginApp extends Component {
           <Button type="submit" variant="utSearch">
             Login
           </Button>
+          <Link className="headerLink" to="/signUp">
+            <Button variant="utSearch">
+              Sign Up
+            </Button>
+          </Link>
         </Form>
       );
     }

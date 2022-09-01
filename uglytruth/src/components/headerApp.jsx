@@ -9,9 +9,11 @@ class HeaderApp extends Component {
     if (this.props.loggedInUser) {
       return (
         <React.Fragment>
-          <span className="colored-text">
-            {this.props.loggedInUser.userName}
-          </span>
+          <Link className="headerLink" to="/userInfo">
+            <span className="colored-text">
+              {this.props.loggedInUser.data.username}
+            </span>
+          </Link>
           <Image src={this.props.loggedInUser.profileImg} />
           <span
             onClick={this.props.loginDetails.parentLogOut}

@@ -86,7 +86,6 @@ class FactsApp extends Component {
   };
 
   fetchFirst() {
-    let that = this;
     fetch("TestData/QuickFactsData.json")
       .then(function (resp) {
         return resp;

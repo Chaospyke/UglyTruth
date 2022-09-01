@@ -13,11 +13,19 @@ class ContactApp extends Component {
     },
     functionCallTest:(e)=>{
       console.log("functionCallTest called");
-      fetch("http://localhost:8080/api/v1/student/getStudent3",{
-        method:"GET"
+      fetch("http://localhost:8080/api/v1/user/getUserByUsername",{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify(
+          {
+            username:"coolguy93"
+          }
+        )
       })
         .then(response => response.json())
-        .then((data)=>console.log("Result:",data[0]));
+        .then((data)=>console.log("Result:",data));
       console.log("functionCallTest end");
     }
   };
