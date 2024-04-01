@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/UglyTruth/static/css/main.752c68ad.chunk.css",
+    "main.js": "/UglyTruth/static/js/main.b5751591.chunk.js",
+    "main.js.map": "/UglyTruth/static/js/main.b5751591.chunk.js.map",
+    "runtime-main.js": "/UglyTruth/static/js/runtime-main.27b5a140.js",
+    "runtime-main.js.map": "/UglyTruth/static/js/runtime-main.27b5a140.js.map",
+    "static/css/2.d5e620ed.chunk.css": "/UglyTruth/static/css/2.d5e620ed.chunk.css",
+    "static/js/2.cc484a90.chunk.js": "/UglyTruth/static/js/2.cc484a90.chunk.js",
+    "static/js/2.cc484a90.chunk.js.map": "/UglyTruth/static/js/2.cc484a90.chunk.js.map",
+    "index.html": "/UglyTruth/index.html",
+    "static/css/2.d5e620ed.chunk.css.map": "/UglyTruth/static/css/2.d5e620ed.chunk.css.map",
+    "static/css/main.752c68ad.chunk.css.map": "/UglyTruth/static/css/main.752c68ad.chunk.css.map",
+    "static/js/2.cc484a90.chunk.js.LICENSE.txt": "/UglyTruth/static/js/2.cc484a90.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.27b5a140.js",
+    "static/css/2.d5e620ed.chunk.css",
+    "static/js/2.cc484a90.chunk.js",
+    "static/css/main.752c68ad.chunk.css",
+    "static/js/main.b5751591.chunk.js"
+  ]
+}
