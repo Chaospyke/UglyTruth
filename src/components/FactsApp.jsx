@@ -127,7 +127,7 @@ class FactsApp extends Component {
               <div className="col-lg-6">
                 <Image src={e.pict} />
               </div>
-              <div className="col-lg-6">{e.facts}</div>
+              <div className="col-lg-6 colored-text">{e.facts}</div>
             </div>
           </Card.Body>
         </Accordion.Collapse>

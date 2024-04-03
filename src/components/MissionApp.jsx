@@ -49,7 +49,7 @@ class MissionApp extends Component {
         </Card.Header>
         <Accordion.Collapse eventKey={e.key}>
           <Card.Body>
-            <div className="row">{e.sectionText}</div>
+            <div className="row colored-text">{e.sectionText}</div>
           </Card.Body>
         </Accordion.Collapse>
       </Card>

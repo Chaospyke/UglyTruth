@@ -104,13 +104,13 @@ class ExternalApp extends Component {
                 <div className="col-lg-4">
                   <div className="row">
                     <div className="col-lg-12 headerLink">Summary</div>
-                    <div className="col-lg-12">{e.summary}</div>
+                    <div className="col-lg-12 colored-text">{e.summary}</div>
                   </div>
                 </div>
                 <div className="col-lg-4">
                   <div className="row">
                     <div className="col-lg-12 headerLink">Links</div>
-                    <div className="col-lg-12">
+                    <div className="col-lg-12 colored-text">
                       {e.links.map((v, i) => (
                         <div key={i}>
                           {i}. {v}
