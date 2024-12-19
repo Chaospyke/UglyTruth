@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// import loginUsers from "../data/users.json";
 import HeaderApp from "./headerApp";
 import { Route, BrowserRouter as Router, Redirect,  } from "react-router-dom";
 import HomeApp from "./HomeApp";
@@ -64,25 +65,30 @@ class App extends Component {
   };
 
   handleLoginCallback(e) {
-    fetch("http://localhost:8080/api/v1/user/loginUser",{
-                method:"POST",
-                headers:{
-                    "Content-type":"application/json"
-                },
-                body:JSON.stringify(e)
-            })
-            .then(response=>response.json())
-            .then((data) =>{
-              if(!(data.error)){
-                this.setState(
-                  {loggedInUser:
-                    {
-                  data:data
-                }});
-              }else{
-                console.log("Login Failed");
-              }
-            });
+      fetch("http://localhost:8080/api/v1/user/loginUser",{
+                  method:"POST",
+                  headers:{
+                      "Content-type":"application/json"
+                  },
+                  body:JSON.stringify(e)
+              })
+              .then(response=>response.json())
+              .then((data) =>{
+                if(!(data.error)){
+                  this.setState(
+                    {loggedInUser:
+                      {
+                    data:data
+                  }});
+                }else{
+                  console.log("Login Failed");
+                }
+              },
+              err =>{
+                // let displayData = require('../data/users.json');
+                console.log("Error:"+e+"\nLogin Failed");
+                console.log(this.state.loginUsers);
+              });
   }
 
   handleLogoutCallback(e) {

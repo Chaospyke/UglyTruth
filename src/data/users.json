@@ -1,0 +1,39 @@
+{
+  "loginUsers": [
+    {
+      "userId": "coolguy93",
+      "email": "userName@email.com",
+      "password": "badPassword",
+      "userName": "Malcom Zes",
+      "profileImg": "https://picsum.photos/20"
+    },
+    {
+      "userId": "EdgeyDark",
+      "email": "iserName@email.net",
+      "password": "n07@b4d1",
+      "userName": "Remid Zost",
+      "profileImg": "https://picsum.photos/20"
+    },
+    {
+      "userId": "97Sassylass",
+      "email": "faceCrime@email.io",
+      "password": "l4ck1n@",
+      "userName": "Samus Aran",
+      "profileImg": "https://picsum.photos/20"
+    },
+    {
+      "userId": "i<3Exploud",
+      "email": "noisyGirl@email.net",
+      "password": "sc33rchinG",
+      "userName": "Caka Foni",
+      "profileImg": "https://picsum.photos/20"
+    },
+    {
+      "userId": "madMADMad",
+      "email": "ALWAYSAGNRY@email.com",
+      "password": "peace_full_of",
+      "userName": "Sean Aggre",
+      "profileImg": "https://picsum.photos/20"
+    }
+  ]
+}
