@@ -135,6 +135,9 @@ class App extends Component {
             <Route exact path="/">
               <Redirect to="/home" />
             </Route>
+            <Route exact path="/UglyTruth">
+              <Redirect to="/home" />
+            </Route>
             <Route
               path="/story/:storyId"
               component={(props) => <StoryApp {...props} />}
